@@ -3,6 +3,8 @@ import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
@@ -20,8 +22,10 @@ public class DropDown {
 		driver.findElement(By.id("ctl00_mainContent_ddl_originStation1_CTXT")).click();
 		driver.findElement(By.xpath("//a[@value='BLR']")).click();
 		
-		//WebDriverWait wait = new WebDriverWait(driver, null);
-		Thread.sleep(2000);
+		//Duration timeToWait = Duration.ofSeconds(2);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(120));
+		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("(//a[@value='MAA'])[2]"))));
+		///Thread.sleep(2000);
 		driver.findElement(By.xpath("(//a[@value='MAA'])[2]")).click();
 		
 		
