@@ -20,13 +20,13 @@ public class DropDown {
 		driver.get("https://rahulshettyacademy.com/dropdownsPractise/");
 		
 		driver.findElement(By.id("ctl00_mainContent_ddl_originStation1_CTXT")).click();
-		driver.findElement(By.xpath("//a[@value='BLR']")).click();
+		driver.findElement(By.xpath("//div[@id='ctl00_mainContent_ddl_originStation1_CTNR']//a[@value='BLR']")).click();
 		
 		//Duration timeToWait = Duration.ofSeconds(2);
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(120));
-		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("(//a[@value='MAA'])[2]"))));
-		///Thread.sleep(2000);
-		driver.findElement(By.xpath("(//a[@value='MAA'])[2]")).click();
+		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("(//div[@id='ctl00_mainContent_ddl_destinationStation1_CTNR']//a[@value='MAA'])"))));
+		//Thread.sleep(2000);
+		driver.findElement(By.xpath("//div[@id='ctl00_mainContent_ddl_destinationStation1_CTNR']//a[@value='MAA']")).click();
 		
 		
 
